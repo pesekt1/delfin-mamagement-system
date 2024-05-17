@@ -4,22 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //userInputMenu();
-
         MembersDatabase membersDatabase = new MembersDatabase();
+        generateSomeMembers(membersDatabase);
 
-        Member member1 = new Member("John Doe", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
-        Member member2 = new Member("Jane Doe", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
-        Member member3 = new Member("John Smith", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
-
-        membersDatabase.addMember(member1);
-        membersDatabase.addMember(member2);
-        membersDatabase.addMember(member3);
-        
-        membersDatabase.printAllMembers();
+        userInputMenu(membersDatabase);
     }
 
-    private static void userInputMenu() {
+    private static void userInputMenu( MembersDatabase membersDatabase) {
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -57,9 +48,11 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Print all members");
+                    membersDatabase.printAllMembers();
                     break;
                 case 5:
                     System.out.println("Print members with outstanding balance");
+                    membersDatabase.printMembersWithBalance();
                     break;
                 case 6:
                     System.out.println("Print top 5 fastest breaststroke swimmers");
@@ -75,5 +68,16 @@ public class Main {
                     break;
             }
         } while (option != 10);
+    }
+
+    private static void generateSomeMembers(MembersDatabase membersDatabase){
+        membersDatabase.addMember(new Member("John Doe", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021"));
+        membersDatabase.addMember(new Member("Jane Doe", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021"));
+        membersDatabase.addMember(new Member("John Smith", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021"));
+
+        Member memberWithBalance = new Member("Jane Smith", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
+        memberWithBalance.setBalance(1600);
+
+        membersDatabase.addMember(memberWithBalance);
     }
 }

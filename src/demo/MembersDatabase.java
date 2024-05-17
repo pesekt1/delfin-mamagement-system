@@ -23,4 +23,17 @@ public class MembersDatabase {
             member.print();
         }
     }
+
+    public void printMembersWithBalance() {
+        System.out.println();
+        System.out.println("Members with outstanding balance:");
+
+        for (Member member : members) {
+            if (member.getBalance() > 0) {
+                System.out.println();
+                System.out.println("Member:");
+                member.print();
+            }
+        }
+    }
 }

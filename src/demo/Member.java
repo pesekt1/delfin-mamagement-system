@@ -32,6 +32,7 @@ public class Member {
     private double BreaststrokeTime; //console input
     private String BreaststrokeDate; //console input
 
+    //constructor
     public Member(String name, String BirthDate, boolean activeMembership, SwimType swimType, double ButterflyTime, String ButterflyDate, double BackstrokeTime, String BackstrokeDate, double BreaststrokeTime, String BreaststrokeDate) {
         this.name = name;
         this.BirthDate = BirthDate;
@@ -49,6 +50,16 @@ public class Member {
         this.BackstrokeDate = BackstrokeDate;
         this.BreaststrokeTime = BreaststrokeTime;
         this.BreaststrokeDate = BreaststrokeDate;
+    }
+
+    //Getters
+    public int getBalance() {
+        return balance;
+    }
+
+    //Setters
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public void print() {
