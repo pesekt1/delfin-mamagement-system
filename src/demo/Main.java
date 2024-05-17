@@ -4,7 +4,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        userInputMenu();
+        //userInputMenu();
+
+        MembersDatabase membersDatabase = new MembersDatabase();
+
+        Member member1 = new Member("John Doe", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
+        Member member2 = new Member("Jane Doe", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
+        Member member3 = new Member("John Smith", "01/01/2000", true, SwimType.COMPETITIVE, 10.0, "01/01/2021", 10.0, "01/01/2021", 10.0, "01/01/2021");
+
+        membersDatabase.addMember(member1);
+        membersDatabase.addMember(member2);
+        membersDatabase.addMember(member3);
+        
+        membersDatabase.printAllMembers();
     }
 
     private static void userInputMenu() {
